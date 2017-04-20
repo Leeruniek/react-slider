@@ -771,7 +771,8 @@
         offset[i] = this._calcOffset(value[i], i);
       }
 
-      var bars = props.withBars ? this._renderBars(offset) : null;
+      // If an upperBound has not yet been determined then skip rendering bars
+      var bars = props.withBars && this.state.upperBound > 0 ? this._renderBars(offset) : null;
       var handles = this._renderHandles(offset);
 
       return (
